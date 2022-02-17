@@ -20,12 +20,16 @@ class _AnimatedAlignViewState extends State<AnimatedAlignView> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Container(
+                //Animated Container Example
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 100),
                   height: 40,
                   width: 80,
                   decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                          colors: [Color(0xFF004D40), Color(0xFF009688)]),
+                      gradient: LinearGradient(
+                          colors: _selected
+                              ? const [Color(0xFF004D40), Color(0xFF009688)]
+                              : const [Color(0xFFD6D6D6), Color(0xFFE0E0E0)]),
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
