@@ -17,6 +17,11 @@ class _LottieViewState extends State<LottieView> with TickerProviderStateMixin {
     _lottieAnimationController = AnimationController(vsync: this);
     _lottieAnimationController.addStatusListener((AnimationStatus status) {
       debugPrint(status.toString());
+      if (status == AnimationStatus.completed) {
+        _lottieAnimationController.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        _lottieAnimationController.forward();
+      }
     });
   }
 
@@ -37,7 +42,7 @@ class _LottieViewState extends State<LottieView> with TickerProviderStateMixin {
           children: [
             Expanded(
               child: GestureDetector(
-                onTap: () => _lottieAnimationController.repeat(),
+                onTap: () => _lottieAnimationController.forward(),
                 child: Lottie.asset(
                   'assets/loader.json',
                   controller: _lottieAnimationController,
@@ -50,7 +55,7 @@ class _LottieViewState extends State<LottieView> with TickerProviderStateMixin {
             ),
             Expanded(
               child: GestureDetector(
-                onTap: () => _lottieAnimationController.repeat(),
+                onTap: () => _lottieAnimationController.forward(),
                 child: Lottie.network(
                   'https://assets6.lottiefiles.com/private_files/lf30_pidikbny.json',
                   controller: _lottieAnimationController,
