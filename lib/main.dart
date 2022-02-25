@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_all_animations/animated_widget_view.dart';
+import 'package:flutter_all_animations/hero_animation_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AnimatedWidgetView(),
+      home: const HeroAnimationView(),
     );
   }
 }
